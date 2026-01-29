@@ -48,6 +48,11 @@ The analysis was carried out inside an Ubuntu virtual machine to ensure the test
 
 Snapshots are especially useful in malware-related labs because they remove all changes made after the snapshot, making it easy to reset the environment for future experiments.
 
+**Figure 1:** Clean snapshot created before starting the analysis.
+
+![VM snapshot](images/vm-clean-snapshot.png)
+
+
 ---
 ## Creating the EICAR test file
 ---
@@ -55,6 +60,11 @@ Snapshots are especially useful in malware-related labs because they remove all 
 To simulate malware detection without using real malware, the EICAR test file was used. This file is a standard, trusted test sample designed specifically to trigger antivirus alerts while remaining completely harmless.
 
 Inside the virtual machine, a file named `EICAR.com` was created using the nano text editor. The official EICAR test string was added to the file and saved. The file’s presence was then verified from the terminal to confirm that the test sample had been created successfully.
+
+**Figure 2:** EICAR test file created using nano inside the VM.
+
+![EICAR creation](images/eicar-file-creation.png)
+
 
 ---
 ## Uploading the File to VirusTotal
@@ -67,6 +77,10 @@ Uploading the test file allows observation of how different antivirus vendors id
 > This step was performed only inside an isolated virtual machine.  
 Although harmless, the EICAR file may still trigger antivirus alerts.
 
+**Figure 3:** Uploading the EICAR test file to VirusTotal.
+
+![VirusTotal upload](images/virustotal-upload.png)
+
 ---
 ## Analysis of VirusTotal Results
 ---
@@ -77,6 +91,11 @@ VirusTotal reported 61 out of 68 detections, showing that most antivirus engines
 
 The Community Score also indicates that the file is widely known and recognized as a test sample.
 
+**Figure 4:** VirusTotal detection overview and community score for the EICAR test file.
+
+![VirusTotal detection overview](images/virustotal-community-score.png)
+
+
 ### Popular Threat Label
 
 The file was labeled as `virus.eicar/test`, which confirms that it is an antivirus test file and not real malware. Many vendors clearly identify it as a test artifact using labels such as EICAR-Test-NOT Virus.
@@ -84,6 +103,10 @@ The file was labeled as `virus.eicar/test`, which confirms that it is an antivir
 ### Vendor Analysis
 
 Each antivirus vendor displays its own detection name for the file. While the naming conventions vary, all results consistently classify the file as a test file rather than a real threat.
+
+**Figure 5:** Antivirus vendor detection results for the EICAR test file.
+
+![Vendor analysis](images/virustotal-vendor-analysis.png)
 
 ### Details Tab
 
@@ -96,6 +119,11 @@ The Relations tab shows any linked files, URLs, or artifacts. Since the EICAR fi
 ### Behaviour Tab
 
 The Behaviour tab displays sandbox execution activity. As expected, no behavior is observed for the EICAR test file because it is non-functional.
+
+**Figure 6:** Behaviour tab showing no sandbox activity for the EICAR test file.
+
+![Behaviour tab](images/virustotal-behaviour-tab.png)
+
 
 ### Community Tab
 
